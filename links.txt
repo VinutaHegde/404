@@ -1,2 +1,4 @@
 Spatial Pyramid Pooling (SPP) or Simple Resizing ?? (Now we are going with simple resizing)
 https://medium.com/coinmonks/review-sppnet-1st-runner-up-object-detection-2nd-runner-up-image-classification-in-ilsvrc-906da3753679
+
+Image captioning using pretrained VGG model --> https://medium.com/swlh/image-captioning-in-python-with-keras-870f976e0f18
