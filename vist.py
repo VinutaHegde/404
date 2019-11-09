@@ -6,7 +6,7 @@ from datetime import datetime
 from pprint import pprint
 from scipy.misc import imread, imresize
 import matplotlib.pyplot as plt
-
+#This API is from: https://github.com/lichengunc/vist_api
 class Story_in_Sequence:
 	def __init__(self, images_dir, annotations_dir, splits=None):
 		"""
