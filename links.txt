@@ -11,3 +11,7 @@ https://nlp.town/blog/sentence-similarity/
 
 Let Your Photos Talk: Generating Narrative Paragraph for Photo Stream via Bidirectional Attention Recurrent Neural Networks:
 https://www.aaai.org/ocs/index.php/AAAI/AAAI17/paper/view/14869/13935
+
+
+Sentence Embeddings (tensorflow):
+https://tfhub.dev/google/universal-sentence-encoder/2
