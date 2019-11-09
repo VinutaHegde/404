@@ -113,20 +113,20 @@ class Story_in_Sequence:
 	def show_story(self, story_id, show_image=True, show_sents=True):
 		story = self.Stories[story_id]
 		sent_ids = story['sent_ids']
-		if show_image:
-			plt.figure()
-			for i, sent_id in enumerate(sent_ids):
-				img_id = self.Sents[sent_id]['img_id']
-				img = self.Images[img_id]
-				album_id = img['album_id']
-				split = self.Albums[album_id]['split']
-				img_file = osp.join(self.images_dir, split, img_id + '.jpg')
-				img_content = self.read_img(img_file)
-				ax = plt.subplot(1, len(sent_ids), i+1)
-				ax.imshow(img_content)
-				ax.axis('off')
-				ax.set_title(str(img_id)+'\n'+img['datetaken'][5:])
-			plt.show()
+		# if show_image:
+		# 	plt.figure()
+		# 	for i, sent_id in enumerate(sent_ids):
+		# 		img_id = self.Sents[sent_id]['img_id']
+		# 		img = self.Images[img_id]
+		# 		album_id = img['album_id']
+		# 		split = self.Albums[album_id]['split']
+		# 		img_file = osp.join(self.images_dir, split, img_id + '.jpg')
+		# 		img_content = self.read_img(img_file)
+		# 		ax = plt.subplot(1, len(sent_ids), i+1)
+		# 		ax.imshow(img_content)
+		# 		ax.axis('off')
+		# 		ax.set_title(str(img_id)+'\n'+img['datetaken'][5:])
+		# 	plt.show()
 		if show_sents:
 			for sent_id in sent_ids:
 				sent = self.Sents[sent_id]
