@@ -15,3 +15,7 @@ https://www.aaai.org/ocs/index.php/AAAI/AAAI17/paper/view/14869/13935
 
 Sentence Embeddings (tensorflow):
 https://tfhub.dev/google/universal-sentence-encoder/2
+
+
+Generating Stories about Images (the sumo writlers):
+https://medium.com/@samim/generating-stories-about-images-d163ba41e4ed
