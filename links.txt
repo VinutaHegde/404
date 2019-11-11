@@ -19,3 +19,7 @@ https://tfhub.dev/google/universal-sentence-encoder/2
 
 Generating Stories about Images (the sumo writlers):
 https://medium.com/@samim/generating-stories-about-images-d163ba41e4ed
+
+
+Style transfer:
+http://web.stanford.edu/class/cs224s/reports/Thaminda_Edirisooriya.pdf
