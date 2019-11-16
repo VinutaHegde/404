@@ -74,6 +74,21 @@ def make_json_caption_file(sis):
     return max_cap_len
 
 
+#Get all images that have captions
+def all_images_with_captions(sis):
+    img_dict={}
+    for album_id in sis.Albums:
+        for story_id in sis.Albums[album_id]['story_ids']:
+            story = sis.Stories[story_id]
+            sent_ids = story['sent_ids']
+            for sent_id in sent_ids:
+                sent = sis.Sents[sent_id]
+                img_dict[sent['img_id']]=1
+    with open('all_images.txt', 'w') as outfile:
+        json.dump(list(img_dict.keys()),outfile)
+
+
+
 #check if images exist in the downloaded splits
 def get_album_ids_for_existing_images(images_dir,sis):
     existing_imgs_albums=[]
