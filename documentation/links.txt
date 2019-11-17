@@ -23,3 +23,9 @@ https://medium.com/@samim/generating-stories-about-images-d163ba41e4ed
 
 Style transfer:
 http://web.stanford.edu/class/cs224s/reports/Thaminda_Edirisooriya.pdf
+
+
+
+
+Batch 12 image embedding:
+https://drive.google.com/file/d/1kAvj8Yfu65Ut-I5P9DXx4CRjnsAXfwm_/view?usp=sharing
