@@ -15,4 +15,4 @@ Report highlights of out experiments (does not have to be well-phrased or anythi
 etc
 
 What we are planning to experiment with:
-1- GRU and LSTM for first model
+1- GRU and LSTM for first model (for speed and accuracy)
