@@ -1,6 +1,7 @@
+
 Report highlights of out experiments (does not have to be well-phrased or anything.. just to use later for documentation)
 
-1- 
+1- The dataset we are using has some mismatches as some images do not have captions.. and some captions' images are removed for copyright issues. We had to handle that during our preprocessing.
 2- 
 3- 
 4- 
@@ -12,3 +13,6 @@ Report highlights of out experiments (does not have to be well-phrased or anythi
 .
 .
 etc
+
+What we are planning to experiment with:
+1- GRU and LSTM for first model
