@@ -37,4 +37,6 @@ to-do:
 What we are planning to experiment with:
 
 1- GRU and LSTM for first model (for speed and accuracy)
+- 2- both RNNS with BERT, which is producing better output
+- 3- (results) Random images to stories check with final model
 
