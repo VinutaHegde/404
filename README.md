@@ -21,13 +21,10 @@ etc
 to-do:
 
 - fix batch generator
-
 - use glove instead of one-hot-vector
-
+- check if bert works well for random/badly phrased sentences
 - loss would be either [cosine diff | eucludian dist]
-
 - train lstm
-
 - change to gru and train
 
 
