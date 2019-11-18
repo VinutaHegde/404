@@ -21,14 +21,20 @@ etc
 
 
 to-do:
+
 1- fix batch generator
+
 2- use glove instead of one-hot-vector
+
 3- loss would be either [cosine diff | eucludian dist]
+
 4- train lstm
+
 5- change to gru and train
 
 
 
 What we are planning to experiment with:
+
 1- GRU and LSTM for first model (for speed and accuracy)
 
