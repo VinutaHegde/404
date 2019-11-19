@@ -39,11 +39,8 @@ What we are planning to experiment with:
 
 sample table 
 
-##Differences
-|col1                                          | col2                                                                    | col3                                                                                |
-|-------------------------------------------------------|------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
-| element 1                | element 2                                    | element 3                               |
-| element 11 | element 12   | element 13    |
-| element 21             | element 22                                    | element 33                                                        |
-|                                                       |                                                                              |                                                                                                  |
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |                                                                                          |
 
