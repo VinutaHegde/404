@@ -35,3 +35,15 @@ What we are planning to experiment with:
 - both RNNS with BERT, which is producing better output
 - (results) Random images to stories check with final model
 
+
+
+sample table 
+
+##Differences
+|col1                                          | col2                                                                    | col3                                                                                |
+|-------------------------------------------------------|------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+| element 1                | element 2                                    | element 3                               |
+| element 11 | element 12   | element 13    |
+| element 21             | element 22                                    | element 33                                                        |
+|                                                       |                                                                              |                                                                                                  |
+
