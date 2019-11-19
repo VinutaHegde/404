@@ -1,3 +1,7 @@
+Image feature vectors:
+https://drive.google.com/drive/folders/1PHWG1twaVBE5QWZnkNMCFwhp3IG1c4cn?usp=sharing
+
+
 Spatial Pyramid Pooling (SPP) or Simple Resizing ?? (Now we are going with simple resizing)
 https://medium.com/coinmonks/review-sppnet-1st-runner-up-object-detection-2nd-runner-up-image-classification-in-ilsvrc-906da3753679
 
