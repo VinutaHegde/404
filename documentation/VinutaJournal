@@ -36,14 +36,19 @@ python imageExtraction.py /home/vinutaprojects/404/data/train/images/train /home
 
 
 Experiments on model:
+
+20 epochs no good, train atleast 200
+
 0.0001 lr very solw loss improve.. (still overfitting)
 
 LSTM with 0.001 : with 100 images, traning.. but memorised (still overfitting)
 
 GRU is much faster than LSTM ( choose GRU) (still overfitting)
 
+default batch in fit function is 10 folds faster than fit_generator with custom generate 
 dense to 50 -- gradient explode . 
 
 Added batch normalization after each hidden for decoder : 
 
 Added gradient clipping (clipping norm):  
+
