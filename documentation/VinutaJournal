@@ -48,7 +48,9 @@ GRU is much faster than LSTM ( choose GRU) (still overfitting)
 default batch in fit function is 10 folds faster than fit_generator with custom generate 
 dense to 50 -- gradient explode . 
 
-Added batch normalization after each hidden for decoder : 
+Added batch normalization after each hidden for decoder :  loss shot up after 31 epochs
 
-Added gradient clipping (clipping norm):  
+Added gradient clipping (clipping norm=1.0):  
+
+Adding gradient clipping (clipvalue=0.5) : 
 
