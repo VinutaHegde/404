@@ -1,0 +1,46 @@
+   41  tar -xvf train_split.0.tar.gz
+   41  tar -xvf train_split.1.tar.gz
+   42  tar -xvf train_split.2.tar.gz
+   43  tar -xvf train_split.3.tar.gz  
+   41  tar -xvf train_split.4.tar.gz
+
+   
+   41  tar -xvf train_split.6.tar.gz
+   42  tar -xvf train_split.10.tar.gz
+   43  tar -xvf train_split.9.tar.gz
+   38  tar -xvf train_split.12.tar.gz
+   39  tar -xvf train_split.11.tar.gz
+   
+   84  tar -xvf train_split.5.tar.gz
+   85  tar -xvf train_split.7.tar.gz
+   86  tar -xvf train_split.8.tar.gz
+   
+   some_cmd > some_file 2>&1 &
+
+python imageExtraction.py /home/vinutaprojects/404/data/train/images/train/ /home/vinutaprojects/imageGroups/group1.json /home/vinutaprojects/imageGroupsOutput/cnn_group1.json 
+
+
+python imageExtraction.py /home/vinutaprojects/404/data/train/images/train /home/vinutaprojects/imageGroups/group2.json /home/vinutaprojects/imageGroupsOutput/cnn_group2.json 
+
+
+python imageExtraction.py /home/vinutaprojects/404/data/train/images/train /home/vinutaprojects/imageGroups/group3.json /home/vinutaprojects/imageGroupsOutput/cnn_group3.json
+
+
+python imageExtraction.py /home/vinutaprojects/404/data/train/images/train /home/vinutaprojects/imageGroups/group4.json /home/vinutaprojects/imageGroupsOutput/cnn_group4.json 
+
+
+python imageExtraction.py /home/vinutaprojects/404/data/train/images/train /home/vinutaprojects/imageGroups/group5.json /home/vinutaprojects/imageGroupsOutput/cnn_group5.json 
+
+
+python imageExtraction.py /home/vinutaprojects/404/data/train/images/train /home/vinutaprojects/imageGroups/group6.json /home/vinutaprojects/imageGroupsOutput/cnn_group6.json
+
+
+Experiments on model:
+0.0001 lr very solw loss improve..
+
+dense to 50 -- gradient explode
+
+Added batch normalization after each hidden for decoder : 
+
+
+Added gradient clipping (clipping norm): 
