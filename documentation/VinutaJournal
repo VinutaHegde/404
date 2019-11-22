@@ -36,11 +36,14 @@ python imageExtraction.py /home/vinutaprojects/404/data/train/images/train /home
 
 
 Experiments on model:
-0.0001 lr very solw loss improve..
+0.0001 lr very solw loss improve.. (still overfitting)
 
-dense to 50 -- gradient explode
+LSTM with 0.001 : with 100 images, traning.. but memorised (still overfitting)
+
+GRU is much faster than LSTM ( choose GRU) (still overfitting)
+
+dense to 50 -- gradient explode . 
 
 Added batch normalization after each hidden for decoder : 
 
-
-Added gradient clipping (clipping norm): 
+Added gradient clipping (clipping norm):  
