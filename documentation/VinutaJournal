@@ -54,3 +54,14 @@ Added gradient clipping (clipping norm=1.0):
 
 Adding gradient clipping (clipvalue=0.5) : 
 
+
+# 1 epoch 40 min, loss from 12+ to 5+ # 256 image , dense
+# 50 dense :  12 min/ epoch 5 splits? 5 
+
+no relu before softmax --  solved nan
+
+  decoder2 = Dense(128,activation=None,kernel_regularizer=keras.regularizers.l2(0.01))(decoder1) kernal regularizer now 
+  
+  Learning rate .. be around 0.001
+  
+  
