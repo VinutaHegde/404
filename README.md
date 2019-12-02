@@ -1,8 +1,7 @@
-# 404
+# Team 404
 566 final project
 
-
-
+Link to report: 
 
 Report highlights of out experiments (does not have to be well-phrased or anything.. just to use later for documentation)
 
