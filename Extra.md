@@ -1,11 +1,11 @@
 # Project Details
 ## Baseline 1 Model
 ## Baseline 2 Model
-Thought the dataset claims to have <#number> of images, there is a huge subset of captions which doesn’t have their respective images <#link to the FAQ> and also vice versa. 
+<!--- commented since it seems redundant given the dataset part in the appendix --->
+<!--- Thought the dataset claims to have <#number> of images, there is a huge subset of captions which doesn’t have their respective images <#link to the FAQ> and also vice versa. 
+However, we do include these captions in this baseline model but with the respective image embeddings of zero (signifies the unavailability of the context) which is similar to what we do in case of text - UNK token. This also results in ample availability of data to train the decoder as a simple language model. --->
 
-However, we do include these captions in this baseline model but with the respective image embeddings of zero (signifies the unavailability of the context) which is similar to what we do in case of text - UNK token. This also results in ample availability of data to train the decoder as a simple language model.
-
-Preprocessing of images is done in the same way as the other model where we obtain the feature representation of the image using Google’s InceptionV3 model (of dimension 2048), but we limit the vector dimension to a relatively smaller size before feeding it into the language model by passing it through a Dense layer.. These vectors are concatenated to get the feature representation of the story. All the captions in a story are concatenated which results in a coherent narration.
+Preprocessing of images is done in the same way as the other models, but we limit the vector dimension to a relatively smaller size before feeding it into the language model by passing it through a Dense layer. These vectors are concatenated to get the feature representation of the story. All the captions in a story are concatenated which results in a coherent narration.
 
 
 Claims:
