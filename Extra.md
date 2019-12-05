@@ -38,6 +38,8 @@ Structure of the data looks like :<br>
  >>      .<br>
  >>      [[albumn:{[image1, image2, image3, image4, image5],[caption1, caption2, caption3, caption4, caption5]}]}}<br>
 
+It is also good to note that the stories in the dataset are very abstract and cantain big part of imaginary events that can/cannot be inferred directly from the image/image sequence.
+
 ### Data preprocessing
 We used pretrained __Xception model__ from Keras to extract the features from the images. To represent the captions we went with __GLOVE__ embedding. Each image is represented as __[2048 dimension]__ vector and each caption is represented as __[300*max_sentences_length__] 
 
@@ -59,10 +61,8 @@ Caption is a group of words describing a given image.
 #### Story 
 Story is a group of captions describing an album (or sequence of images).
 #### Image Embedding
-Used Xception model to extract all image features prior to the training phase.
+Image features extracted from Xception model prior to the training phase (for optimization purposes).
 #### Word Embeddings
 Used GLOVE 300 embeddings to embed all words in each caption.
-#### VIST
-Dataset that contains sets of 5 images with corresponding stories. Each image in a story is linked to a single caption. Images in the dataset are reused in multiple stories, which could be very unrelated and cantain big part of imaginary events that can/cannot be inferr3ed directly from the image. Link to the dataset is here
 
 
