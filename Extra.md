@@ -1,5 +1,4 @@
-# Album Narration
-## The problem we are trying to solve
+# Appendix
 ## Dataset
 We use VIST dataset for our training and testing. Picking the grains from a dataset was very interesting journey for us. There were few surprises on the way. Here is something users of VSIT dataset should know about before using it:
 - Not all the Albums have stories associated with them
@@ -36,8 +35,11 @@ Caption is a group of words describing a given image.
 #### Story 
 Story is a group of captions describing an album (or sequence of images).
 #### Image Embedding
+Used Xception model to extract all image features prior to the training phase.
 #### Word Embeddings
+Used GLOVE 300 embeddings to embed all words in each caption.
 #### VIST
+Dataset that contains sets of 5 images with corresponding stories. Each image in a story is linked to a single caption. Images in the dataset are reused in multiple stories, which could be very unrelated and cantain big part of imaginary events that can/cannot be inferr3ed directly from the image. Link to the dataset is here
 
 #### Baseline model
 Thought the dataset claims to have <#number> of images, there is a huge subset of captions which doesn’t have their respective images <#link to the FAQ> and also vice versa. 
