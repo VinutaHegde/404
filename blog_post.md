@@ -1,14 +1,14 @@
 
 # Album Narration
 Imagine having a tool which when given an album of images, generates an interesting story. This could be used by a ton of users as image sharing platforms such as Instagram, Snapchat, Facebook, etc have billions of users uploading pictures every day. These platforms could make use of such application in many ways like a story of the entire year using selective photos (we will leave other possible usages to your imagination :wink: )
-# Problem
+## Problem
 The Image Captioning task focuses on generating a description of a single image in isolation. There have been sufficient research on this task that produced ground-breaking results. One the other hand, visual storytelling is an open problem in Deep Learning. Album Narration is an attempt to generate contextual image captions for a sequence of images such that, the whole album of images can be described with a cohesive and interesting story.
 To solve the Album Narration problem, we need a solution that meets in the middle of the 2 tasks mentioned:
 1. Reasoning about an image devoid of any context
 1. Reasoning about a set of continuous frames with sufficient context
 
-# Proposed Model
-## Description
+
+## Proposed Model
 The Proposed model is composed of three main parts, First part is a sequential image encoder. The encoder expects 5 images and passes these images sequentially through a GRU that returns the output from each single timestep. The point of passing the images through a GRU is that instead of having information about individual  images, We would rather have information for the current image, together with all previous images, in an effort to essentially capture all previously occurring events.
 <p align="center">&emsp;&emsp;&emsp;&emsp;<img src="images/imageEncoder.png" height="200"><p>
 
