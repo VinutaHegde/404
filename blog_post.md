@@ -12,7 +12,7 @@ Third part is the decoder. The decoder of the proposed model is expected to rece
 ## Training
 The model is trained end-to-end and is expected to generate all five captions all at once for each story during the training phase. 
 
-<p align="center" ><img src="images/training.gif" height="250"><p>
+<p align="center" ><img src="images/training.gif" height="300"><p>
 
 ### STEP 1:
 For the first caption, the model takes the output from the first timestep of the image encoder, and passes that as the first hidden state for the decoder, and the decoder uses that, together with the caption input to generate the very first caption. 
