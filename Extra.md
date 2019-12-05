@@ -1,4 +1,6 @@
-## Baseline 2 model
+# Project Details
+## Baseline 1 Model
+## Baseline 2 Model
 Thought the dataset claims to have <#number> of images, there is a huge subset of captions which doesn’t have their respective images <#link to the FAQ> and also vice versa. 
 
 However, we do include these captions in this baseline model but with the respective image embeddings of zero (signifies the unavailability of the context) which is similar to what we do in case of text - UNK token. This also results in ample availability of data to train the decoder as a simple language model.
