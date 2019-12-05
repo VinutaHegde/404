@@ -1,4 +1,5 @@
-# proposed model
+# Proposed Model
+## Descreption
 The Proposed model is composed of three main parts, First part is a sequential image encoder. The encoder expects 5 images and passes these images sequentially through a GRU that returns the output from each single timestep. The point of passing the images through a GRU is that instead of having information about individual  images, We would rather have information for the current image, together with all previous images, in an effort to essentially capture all previously occurring events.
 <PIC: IMAGE ENCODER>
 
@@ -8,3 +9,4 @@ Second part is a previous captions encoder, which essentially encodes all previo
 Third part is the decoder. The decoder of the proposed model is expected to receive two encodings (image and caption) to generate every caption. Therefore, the decoder is re-used five times in the proposed model, once for every caption. The decoder is a GRU that uses a teacher force method during the learning phase in order to speed up the learning process.
 <PIC: DECODER>
 
+## Training
