@@ -7,7 +7,7 @@ Second part is a previous captions encoder, which essentially encodes all previo
 <p align="center" ><img src="images/prevCapEncoder.png" height="250"><p>
 
 Third part is the decoder. The decoder of the proposed model is expected to receive two encodings (image and caption) to generate every caption. Therefore, the decoder is re-used five times in the proposed model, once for every caption. The decoder is a GRU that uses a teacher force method during the learning phase in order to speed up the learning process.
-<p align="center">&emsp;&emsp;&emsp;&emsp;<img src="images/decoder.png" height="350"><p>
+<p align="center">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="images/decoder.png" height="350"><p>
 
 ## Training
 The model is trained end-to-end and is expected to generate all five captions all at once for each story during the training phase. 
