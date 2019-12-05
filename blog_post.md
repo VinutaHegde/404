@@ -12,7 +12,7 @@ To solve the Album Narration problem, we need a solution that meets in the middl
 The Proposed model is composed of three main parts, images encoder, previous captiones encoder, and a decoder, all are explained in the following segments.
 
 ### Image Encoder
-First part is a sequential image encoder. The encoder expects 5 images and passes these images sequentially through a GRU that returns the output from each single timestep. The point of passing the images through a GRU is that instead of having information about individual  images, We would rather have information for the current image, together with all previous images, in an effort to essentially capture all previously occurring events.
+The sequential image encoder expects 5 images and passes these images sequentially through a GRU that returns the output from each single timestep. The point of passing the images through a GRU is that instead of having information about individual  images, We would rather have information for the current image, together with all previous images, in an effort to essentially capture all previously occurring events.
 <p align="center">&emsp;&emsp;&emsp;&emsp;<img src="images/imageEncoder.png" height="200"><p>
 
 ### Previous Captions Encoder
@@ -34,7 +34,8 @@ next caption is expected to be more like
 To do that, a bidirectional GRU is used to encode all previously generated captions.
 <p align="center" ><img src="images/prevCapEncoder.png" height="250"><p>
 
-Third part is the decoder. The decoder of the proposed model is expected to receive two encodings (image and caption) to generate every caption. Therefore, the decoder is re-used five times in the proposed model, once for every caption. The decoder is a GRU that uses a teacher force method during the learning phase in order to speed up the learning process.
+### Decoder
+The decoder of the proposed model is expected to receive two encodings (image and caption) to generate every caption. Therefore, the decoder is re-used five times in the proposed model, once for every caption. The decoder is a GRU that uses a teacher force method during the learning phase in order to speed up the learning process.
 <p align="center">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="images/decoder.png" height="300"><p>
 
 ## Training
