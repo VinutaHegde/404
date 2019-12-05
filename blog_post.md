@@ -42,14 +42,14 @@ The model is trained end-to-end and is expected to generate all five captions al
 
 <p align="center" ><img src="images/training.gif" height="300"><p>
 
-### STEP 1:
+1. STEP 1:
 For the first caption, the model takes the output from the first timestep of the image encoder, and passes that as the first hidden state for the decoder, and the decoder uses that, together with the caption input to generate the very first caption. 
 
-### STEP 2:
+1. STEP 2:
 After that, the model passes the decoder’s output for the first caption to the prev-captions encoder and concatenates the prev-captions encoder’s output together with the image encoder’s output for the second timestep. And then the model uses that to initialize the first hidden state for the decoder, and then the second caption is generated.
-###  STEP 3:
+1.  STEP 3:
 For the third caption, the same process happens, except now the prev-captions encoder concatenates the decoder’s output from STEP 1 and STEP 2 to generate the encoding. 
-### STEPs 4, 5:
+1. STEPs 4, 5:
 same as the previous process.
 
 The model uses a sparse cross entropy loss (modified cross entropy loss that discards the use of one-hot encodings for words to make more efficient use of memory) where each word is treated as a class.  The model tries to lower the misclassifications for each timestep (each word position) for the entire story.
