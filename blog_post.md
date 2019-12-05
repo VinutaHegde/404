@@ -1,4 +1,6 @@
 
+# Album Narration
+Imagine having a tool which when given an album of images, generates an interesting story. This could be used by a ton of users as image sharing platforms such as Instagram, Snapchat, Facebook, etc have billions of users uploading pictures every day. These platforms could make use of such applications in many ways like a story of the entire year using selective photos (we will leave other possible usages to your imagination :wink: )
 # Problem
 The Image Captioning task focuses on generating a description of a single image in isolation. There have been sufficient research on this task that produced ground-breaking results. One the other hand, visual storytelling is an open problem in Deep Learning. Album Narration is an attempt to generate contextual image captions for a sequence of images such that, the whole album of images can be described with a cohesive and interesting story.
 To solve the Album Narration problem, we need a solution that meets in the middle of the 2 tasks mentioned:
