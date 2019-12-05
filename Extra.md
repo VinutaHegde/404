@@ -1,5 +1,13 @@
 # Project Details
 ## Baseline 1 Model
+<!---- Will come up with a similar image for this model as well ------>
+We started off our exploration with a simple Image Caption problem where we generate captions to individual images in an album or story and concatenate them to generate a narration to the story. With so many Image Captioning models out there, generating sensible and meaningful captions was never much of a challenge. Also, when captions for related sequence of images are concatenated it results in a neat, coherent narration.
+
+Are we done? NO! Not at all.
+
+The major challenge arose when we gave this model a sequence of unrelated images. It resulted in a narration which had minimum coherence across individual captions. The narration used wide variety of terms ranging from “fireworks” to “the apple on the tree” and thus made no sense. 
+
+Nonetheless, this model served its purpose of producing a good benchmark for further experiments.
 ## Baseline 2 Model
 <!--- commented since it seems redundant given the dataset part in the appendix --->
 <!--- Thought the dataset claims to have <#number> of images, there is a huge subset of captions which doesn’t have their respective images <#link to the FAQ> and also vice versa. 
