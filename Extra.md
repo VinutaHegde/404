@@ -1,5 +1,6 @@
 # Project Details
 ## Baseline 1 Model
+<p align="center" ><img src="images/model1.jpeg" height="300"><p>
 <!---- Will come up with a similar image for this model as well ------>
 We started off our exploration with a simple Image Caption problem where we generate captions to individual images in an album or story and concatenate them to generate a narration to the story. With so many Image Captioning models out there, generating sensible and meaningful captions was never much of a challenge. Also, when captions for related sequence of images are concatenated it results in a neat, coherent narration.
 
@@ -15,7 +16,7 @@ However, we do include these captions in this baseline model but with the respec
 #### Pre-Processing
 Preprocessing of images is done in the same way as the other models, but we limit the vector dimension to a relatively smaller size before feeding it into the language model by passing it through a Dense layer. These vectors are concatenated to get the feature representation of the story. All the captions in a story are concatenated which results in a coherent narration.
 #### Model
-<p align="center" ><img src="images/model2.jpeg" height="300"><p>
+<p align="center" ><img src="images/model2.png" height="300"><p>
 #### Claims:
 Language model (Decoder) is provided with the entire context (story in this case) before the caption generation. This helps to generate a sensible narration during test time as well.
 Simpler model, a mere extrapolation of vanilla image captioning model - easier to implement.
