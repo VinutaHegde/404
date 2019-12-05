@@ -16,7 +16,7 @@ The sequential image encoder expects 5 images and passes these images sequential
 <p align="center">&emsp;&emsp;&emsp;&emsp;<img src="images/imageEncoder.png" height="200"><p>
 
 ### Previous Captions Encoder
-Second part is a previous captions encoder, which essentially encodes all previously generated captions into one single thought. The main point of doing that is to encourage the model to remember all what it previously generated so that it will not go further away from the story it started with. Basically, the model is expected to stick to the story it started with. For example, if the next image had information about a man having fun, and the previously generated captions were: 
+Second part is a previous captions encoder, which essentially encodes all previously generated captions into one single thought. The main point of doing that is to encourage the model to remember what all it previously generated so that it will not go further away from the story it started with. Basically, the model is expected to stick to the story it started with. For example, if the next image had information about a man having fun, and the previously generated captions were: 
 > I’m going out with my friends tonight
 
 we would expect the story to continue with: 
@@ -58,6 +58,6 @@ The model uses a sparse cross entropy loss (modified cross entropy loss that dis
 (Please note that during implementation, image features are pre extracted using Xception. Words are replaced by their indices, and later in the model are embedded in a freezed layer using glove 300 embeddings, [click for more details about implementation and baseline models](Extra.md)  )
 
 ## Inference
-During Training, ground truth for captions are available, hence the model can learn all at once. However, during inference, ground truth cease to exist. Hence, words are generated one by one. Unfortunatly, there is no other straightforward way to feed previously generated words to the decoder during inference. The model is used for prediting each single word, so in the worst case the model will be called 100 times (5 captions, 20 words each) to generate a single story. For that reason, We used greedy search to get the story. Although beam search could lead to better results, it has been omitted due to the huge increase in processing just to generate a single story.
+During Training, ground truth for captions are available, hence the model can learn all at once. However, during inference, ground truth ceases to exist. Hence, words are generated one by one. Unfortunatly, there is no other straightforward way to feed previously generated words to the decoder during inference. The model is used for prediting every single word, so in the worst case the model will be called 100 times (5 captions, 20 words each) to generate a single story. For that reason, We used greedy search to get the story. Although beam search could lead to better results, it has been omitted due to the huge increase in processing just to generate a single story.
 
 ## Results
