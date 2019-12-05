@@ -23,3 +23,5 @@ same as the previous process.
 
 The model uses a sparse cross entropy loss (modified cross entropy loss that discards the use of one-hot encodings for words to make more efficient use of memory) where each word is treated as a class.  The model tried to lower the mis-classifications for each timestep (each word position). 
 (Please note that during implementation, captions are truncated to length of 20 words and padded if captions contain less number of words. Also, words are replaced by their indices, and later in the model are embedded in a freezed layer using glove 300 embeddings)
+
+# Results
