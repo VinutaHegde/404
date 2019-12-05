@@ -1,6 +1,6 @@
 # Project Details
 ## Baseline 1 Model
-<p align="center" ><img src="images/model1.jpeg" height="300"><p>
+<p align="center" ><img src="images/model1.png" height="300"><p>
 <!---- Will come up with a similar image for this model as well ------>
 We started off our exploration with a simple Image Caption problem where we generate captions to individual images in an album or story and concatenate them to generate a narration to the story. With so many Image Captioning models out there, generating sensible and meaningful captions was never much of a challenge. Also, when captions for related sequence of images are concatenated it results in a neat, coherent narration.
 
