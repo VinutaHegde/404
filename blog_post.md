@@ -1,5 +1,5 @@
 # Proposed Model
-## Descreption
+## Description
 The Proposed model is composed of three main parts, First part is a sequential image encoder. The encoder expects 5 images and passes these images sequentially through a GRU that returns the output from each single timestep. The point of passing the images through a GRU is that instead of having information about individual  images, We would rather have information for the current image, together with all previous images, in an effort to essentially capture all previously occurring events.
 <PIC: IMAGE ENCODER>
 
@@ -10,3 +10,16 @@ Third part is the decoder. The decoder of the proposed model is expected to rece
 <PIC: DECODER>
 
 ## Training
+The model is trained end-to-end and is expected to generate all five captions all at once for each story during the training phase. 
+### STEP 1:
+For the first caption, the model takes the output from the first timestep of the image encoder, and passes that as the first hidden state for the decoder, and the decoder uses that, together with the caption input to generate the very first caption. 
+
+### STEP 2:
+After that, the model passes the decoder’s output for the first caption to the prev-captions encoder and concatenates the prev-captions encoder’s output together with the image encoder’s output for the second timestep. And then the model uses that to initialize the first hidden state for the decoder, and then the second caption is generated.
+###  STEP 3:
+For the third caption, the same process happens, except now the prev-captions encoder concatenates the decoder’s output from STEP 1 and STEP 2 to generate the encoding. 
+### STEPs 4, 5:
+same as the previous process.
+
+The model uses a sparse cross entropy loss (modified cross entropy loss that discards the use of one-hot encodings for words to make more efficient use of memory) where each word is treated as a class.  The model tried to lower the mis-classifications for each timestep (each word position). 
+(Please note that during implementation, captions are truncated to length of 20 words and padded if captions contain less number of words. Also, words are replaced by their indices, and later in the model are embedded in a freezed layer using glove 300 embeddings)
