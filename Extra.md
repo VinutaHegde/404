@@ -83,6 +83,7 @@ Captions are elso padded if the number of words is less than the allocated lengt
 Captions are used twice, once in the input and once in the output.
 - Input captions are initiated with the word "startseq"
 - Output captions are tailed with "endseq"
+
 This is done to make use of teacher force method to make the learning process easier and faster.
 
 
