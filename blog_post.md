@@ -1,3 +1,5 @@
+# Album Narration 
+##### Wesam Alwehaibi, Vinuta Hegde, Shashanka Subrahmanya, Anurag Kakati
 
 # Album Narration
 Imagine a tool which generates an interesting story given an album of images. Be it a flash back of the year or a trip to one's favorite place, a story tagged with it would make one smile when they come back and browse their timeline. Needless to say, this could be a very useful plugin for photo sharing platforms like Instagram, Snapchat, Facebook, etc. If trained on domain specific data, this could also be used for automated scientific journals to make researchers lives easier. We will leave other possible usages to your imagination. :wink: 
