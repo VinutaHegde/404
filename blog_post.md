@@ -64,7 +64,7 @@ same as the previous process.
 
 The model uses a **sparse cross entropy loss** (modified cross entropy loss that discards the use of one-hot encodings for words to make more efficient use of memory) where each word is treated as a class.  The model tries to lower the misclassifications for each timestep (each word position) for the entire story.
 
-(Please note that during implementation, image features are pre extracted using Xception. Words are replaced by their indices, and later in the model are embedded in a freezed layer using glove 300 embeddings, ([click for more details about implementation and baseline models] (Extra.md))
+(Please note that during implementation, image features are pre extracted using Xception. Words are replaced by their indices, and later in the model are embedded in a freezed layer using glove 300 embeddings, ([click for more details about implementation and baseline models](Extra.md))
 
 ## Inference
 During Training, ground truth for captions are available, hence the model can learn all at once. However, during inference, ground truth ceases to exist. Hence, words are generated one by one. Unfortunately, there is no other straightforward way to feed previously generated words to the decoder during inference. The model is used for predicting every single word, so in the worst case the model will be called 100 times (5 captions, 20 words each) to generate a single story. For that reason, we used greedy search to get the story. Although beam search could lead to better results, it has been omitted due to the huge increase in processing just to generate a single story.
