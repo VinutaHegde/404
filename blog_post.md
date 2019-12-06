@@ -78,7 +78,7 @@ We get the following story:
 
 > the fireworks started right to start the day . the old plantations were fun to look at . the old fountain in the middle of the road was fun . the dragon ride was fun to behold . afterwards , the instructor greeted the fireworks .
 
-Which also haapens to start by describing fireworks, while the image sequence is devoid of any kind of event/carnival. Then, we went back and retraced our methods and found that the main observation is that the model is generating similar observations given extreme inputs (like the third example above). As an effort remedy that, we tried to:
+Which also haapens to start by describing fireworks, while the image sequence is devoid of any kind of event/carnival. This led us to go back and retrace our methods. The main observation is that the model is generating similar observations given extreme inputs (like the third example above). As an effort remedy that, we tried to:
 - Reduce the influence of the previous sentences, to help the model recover from previous unrelated captions
 - Feed the image as an input to the decoder, together with the previously generated word
 - Removing RNN for images as an effort to isolate images to reduce the noise from previous images
