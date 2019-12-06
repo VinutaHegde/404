@@ -85,7 +85,6 @@ Captions are used twice, once in the input and once in the output.
 - Output captions are tailed with "endseq"
 This is done to make use of teacher force method to make the learning process easier and faster.
 
-#### Model Structure
 
 #### Inference
 To do inference, the model is fed with a sequence of 5 images, and a 2D array representing captions. Of course captions are not present during inference time, Hence we simply feed a 2D array as follows:
