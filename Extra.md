@@ -4,7 +4,7 @@
 
 We started off our exploration with a simple Image Caption problem where we generate captions to individual images in an album or story and concatenate them to generate a narration to the story. With so many Image Captioning models out there, generating sensible and meaningful captions was never much of a challenge. Also, when captions for related sequence of images are concatenated it resulted in a neat, coherent narration.
 
-*Problem solved? No, there's always a "but".*
+> Problem solved? No, there's always a "but".
 
 But, when a sequence of unrelated images were fed into this model it resulted in a narration which had minimum coherence across individual captions. The narration used wide variety of terms ranging from “fireworks” to “the apple on the tree” and thus made no sense. 
 
