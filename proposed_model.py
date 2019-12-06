@@ -317,7 +317,7 @@ def build_model():
 
     img_input = Input(shape=(5,IMAGE_EMBEDDING_DIM))
     img_input_dense = TimeDistributed(Dense(img_hidden))(img_input)
-    img_encoder = GRU(img_hidden, recurrent_dropout=0, return_sequences=True , activity_regularizer=l2(0.000))(img_input_dense)
+    img_encoder = GRU(img_hidden, recurrent_dropout=0.0, return_sequences=True , activity_regularizer=l2(0.001))(img_input_dense)
     img1_enc = Lambda(lambda x: x[:, 0, :])(img_encoder)
     img2_enc = Lambda(lambda x: x[:, 1, :])(img_encoder)
     img3_enc = Lambda(lambda x: x[:, 2, :])(img_encoder)
@@ -328,10 +328,10 @@ def build_model():
     Word_Embedder = Embedding(vocab_size, WORD_EMBEDDING_DIM, mask_zero=True, weights=[embedding_matrix], trainable=False)
 
     #define previouse sentences encoder:
-    prev_encoder = Bidirectional(GRU(prev_gru, recurrent_dropout=0, dropout=0.0 , return_sequences=False, activity_regularizer=l2(0.000)),  merge_mode='ave')
+    prev_encoder = Bidirectional(GRU(prev_gru, recurrent_dropout=0.1, dropout=0.2 , return_sequences=False, activity_regularizer=l2(0.001)),  merge_mode='ave')
     prev_dense = Dense(prev_hidden)
     #Decoder:
-    decoder = GRU(prev_hidden+img_hidden,recurrent_dropout=0, dropout=0.0 ,return_sequences=True ,activity_regularizer=l2(0.000))
+    decoder = GRU(prev_hidden+img_hidden,recurrent_dropout=0.1, dropout=0.2 ,return_sequences=True ,activity_regularizer=l2(0.001))
     
     #Current captions
     captions_input = Input(shape=(5,MAX_SEQUENCE_LENGTH))
@@ -378,7 +378,7 @@ def build_model():
 
     decoder_out = concatenate([cap1_dec, cap2_dec, cap3_dec, cap4_dec, cap5_dec], axis=-2)
 
-    decoder_dense = TimeDistributed(Dense(1000, activation=None, kernel_regularizer=l2(0.000)))(decoder_out)
+    decoder_dense = TimeDistributed(Dense(1000, activation=None, kernel_regularizer=l2(0.001)))(decoder_out)
     outputs = Dense(vocab_size, activation='softmax')(decoder_dense)
     model = Model(inputs=[img_input, captions_input], outputs=outputs)
 
