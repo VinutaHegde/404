@@ -38,7 +38,7 @@ In this model, We have attempted to remove dependence of previous captions and r
 In this Experiment, Instead of concatenating the encoded images with the prev-captions encoder and passing that as initial state, we tried to pass the images as input to the decoder.
 
 ### Alternative Model 3
-<p align="center" ><img src="images/alt3.png" height="300"></p>
+<p align="center" ><img src="images/alt3.png" height="350"></p>
 Ih this experiment, we removed the sequential image encoder and passed the images as they are to the model, with the hope that the features from each image are not lost or distorted while in the RNN, and that the image features are treated in isolation from other images. The context is simply derived from previously generated captions.
 
 
