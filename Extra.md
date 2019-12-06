@@ -31,11 +31,11 @@ To resolve the problems of the proposed model, We have experimented with many va
 
 ### Alternative Model 1
 <p align="center" ><img src="images/alt1.png" height="300"></p>
-In this model, We have attempted to remove dependence of previous captions and relied solely on the encoded image sequence to derive the context of the images. We have also attemted to use multiple decoders, since grammatically, the first captions will sound grammatically different than the second caption and so on. However, This experiment did not produce significant improvements as well.
+In this model, we have attempted to remove the dependency of previous captions and relied solely on the encoded image sequence to derive the context of the images. We have also attemted to use multiple decoders, since the first captions will sound grammatically different than the second caption and so on. However, This experiment did not produce significant improvements as well.
 
 ### Alternative Model 2
 <p align="center" ><img src="images/alt2.png" height="300"></p>
-In this Experiment, Instead of concatenating the encoded images with the prev-captions encoder and passing that as initial state, we tried to pass the images as input to the decoder.
+In this Experiment, instead of concatenating the encoded images with the previous caption encoder and passing that as initial state, we tried to pass the images as input to the decoder.
 
 ### Alternative Model 3
 <p align="center" ><img src="images/alt3.png" height="350"></p>
@@ -44,7 +44,7 @@ Ih this experiment, we removed the sequential image encoder and passed the image
 
 # Appendix
 ## Dataset
-We use VIST dataset for our training and testing. Picking the grains from a dataset was very interesting journey for us. There were few surprises on the way. Here is something users of VSIT dataset should know about before using it:
+We use VIST dataset for our training and testing. Picking the grains from a dataset was a very interesting journey for us. There were a few surprises on the way. Here is something users of VSIT dataset should know about before using it:
 - Not all the Albums have stories associated with them
 - Similarly, not all the available stories have albums associated with them
 - Most of the albums have multiple stories associated with them.
@@ -78,7 +78,7 @@ The Model is implemented in Keras on top of tensorflow. All the layers used are 
    * array of 5 captions (compose the entire story)
 
 #### More Implementation Details
-A dictionary is used to index all words in the vocabulary. The captions are fed as a list of indices instead of actual words. The model then uses a freezed embedding layer that makes use of Glove 300 embeddings as its weight. This is where words are converted to their respective feature representation. This is done to make better use of memory resources.
+A dictionary is used to index all words in the vocabulary. The captions are fed as a list of indices instead of actual words. The model then uses a freezed embedding layer that makes use of Glove 300 embeddings as its weight. This is where words are converted to their respective feature representation. This is done to make a better use of memory resources.
 Captions are elso padded if the number of words is less than the allocated length of 20 words. Masking is used to ignore padded words so that the model does not calculate padding as part of the correctly predicted words.
 Captions are used twice, once in the input and once in the output.
 - Input captions are initiated with the word "startseq"
