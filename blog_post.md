@@ -10,6 +10,7 @@ To solve the Album Narration problem, we need a solution that meets in the middl
 
 ## Proposed Model
 The intuition behind this model is to condition the current caption generation on context of previous information encountered. This context can be extracted from either images  or all the previous sentences, or both. The current model uses previous information from both, previous images and previous captions. The Proposed model is composed of three main parts, images encoder, previous captiones encoder, and a decoder, all are explained in the following segments.
+``` Please note that the graphs are made simple by removing dense layers/activations/dropouts/regularization etc. for more details about these layers please take a look at the code in the repository. ```
 
 ### Image Encoder
 The sequential image encoder expects 5 images and passes these images sequentially through a GRU that returns the output from each single timestep. The point of passing the images through a GRU is that instead of having information about individual  images, We would rather have information for the current image, together with all previous images, in an effort to essentially capture all previously occurring events.
