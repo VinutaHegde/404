@@ -1,6 +1,6 @@
 # Project Details
 ## Baseline 1 Model
-<p align="center" ><img src="images/model1.png" height="300"><p>
+<p align="center" ><img src="images/model1.png" height="300"></p>
 
 We started off our exploration with a simple Image Caption problem where we generate captions to individual images in an album or story and concatenate them to generate a narration to the story. With so many Image Captioning models out there, generating sensible and meaningful captions was never much of a challenge. Also, when captions for related sequence of images are concatenated it resulted in a neat, coherent narration.
 
@@ -10,7 +10,7 @@ But, when a sequence of unrelated images were fed into this model it resulted in
 
 Nonetheless, this model served its purpose of producing a good benchmark for further experiments.
 ## Baseline 2 Model
-<p align="center" ><img src="images/model2.png" height="300"><p>
+<p align="center" ><img src="images/model2.png" height="300"></p>
 <!--- commented since it seems redundant given the dataset part in the appendix --->
 <!--- Thought the dataset claims to have <#number> of images, there is a huge subset of captions which doesn’t have their respective images <#link to the FAQ> and also vice versa. 
 However, we do include these captions in this baseline model but with the respective image embeddings of zero (signifies the unavailability of the context) which is similar to what we do in case of text - UNK token. This also results in ample availability of data to train the decoder as a simple language model. --->
@@ -30,14 +30,18 @@ Story embedding typically would be a long vector and thus learning the weights w
 To resolve the problems of the proposed model, We have experimented with many variations, and we are presenting the main three variations we tried. However, all these models did not provide any significant improvement compared to the proposed model, and were not able to resolve the problems of the proposed model. Hence they were discarded. They are mentioned here for the sake of completeness.
 
 ### Alternative Model 1
-<p align="center" ><img src="images/alt1.png" height="300"><p>
+<p align="center" ><img src="images/alt1.png" height="300"></p>
+In this model, We have attempted to remove dependence of previous captions and relied solely on the encoded image sequence to derive the context of the images. We have also attemted to use multiple decoders, since grammatically, the first captions will sound grammatically different than the second caption and so on. However, This experiment did not produce significant improvements as well.
 
 ### Alternative Model 2
-<p align="center" ><img src="images/alt2.png" height="300"><p>
- 
+<p align="center" ><img src="images/alt2.png" height="300"></p>
+In this Experiment, Instead of concatenating the encoded images with the prev-captions encoder and passing that as initial state, we tried to pass the images as input to the decoder.
+
 ### Alternative Model 3
-<p align="center" ><img src="images/alt3.png" height="300"><p>
- 
+<p align="center" ><img src="images/alt3.png" height="300"></p>
+Ih this experiment, we removed the sequential image encoder and passed the images as they are to the model, with the hope that the features from each image are not lost or distorted while in the RNN, and that the image features are treated in isolation from other images. The context is simply derived from previously generated captions.
+
+
 # Appendix
 ## Dataset
 We use VIST dataset for our training and testing. Picking the grains from a dataset was very interesting journey for us. There were few surprises on the way. Here is something users of VSIT dataset should know about before using it:
