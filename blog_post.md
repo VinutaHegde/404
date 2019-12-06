@@ -9,7 +9,6 @@ The Image Captioning task focuses on generating a description of a single image 
 <img title="Figure 1.0" src="images/problem_statement_image.png" height="250">
 <p align="center"><em> Fig. 1: Sample narration</em></p>
 <br>
-<br>
 To solve the Album Narration problem, we need a solution that meets in the middle of the 2 tasks mentioned: 
 
 1. Reasoning about an image devoid of any context
