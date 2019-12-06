@@ -63,6 +63,9 @@ It is also good to note that the stories in the dataset are very abstract and ca
 ### Data preprocessing
 We used pretrained __Xception model__ from Keras to extract the features from the images. To represent the captions we went with __GLOVE__ embedding. Each image is represented as __[2048 dimension]__ vector and each caption is represented as __[300*max_sentences_length__] 
 
+### Environment and Implementation
+The Model is implemented in Keras on top of tensorflow. All the layers used are native keras layers
+
 #### Training pair for Base Model1:
 
 
