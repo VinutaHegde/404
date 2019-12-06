@@ -94,7 +94,16 @@ To do inference, the model is fed with a sequence of 5 images, and a 2D array re
 > [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] </br>
 > [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] </br>
 > [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]] </br>
+
 Where 1 here represents the index of the word "startseq"
+Once we get the output from the model, the we get the word output in position 1 with the highest probability. Assuming we got the word with index 9 as the highest probable word, we place that word in the previous array as follows:
+> [[1 9 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] </br>
+> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] </br>
+> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] </br>
+> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] </br>
+> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]] </br>
+
+and then we feed this 2D array again to the model with the same image sequence to get the next word. The process is repeated till the entire story is generated.
 
 ##  Glossary
 #### Album 
