@@ -39,7 +39,7 @@ In this Experiment, instead of concatenating the encoded images with the previou
 
 ### Alternative Model 3
 <p align="center" ><img src="images/alt3.png" height="350"></p>
-Ih this experiment, we removed the sequential image encoder and passed the images as they are to the model, with the hope that the features from each image are not lost or distorted while in the RNN, and that the image features are treated in isolation from other images. The context is simply derived from previously generated captions.
+In this experiment, we removed the sequential image encoder and passed the images as they are to the model, with the hope that the features from each image are not lost or distorted while in the RNN, and that the image features are treated in isolation from other images. The context is simply derived from previously generated captions.
 
 
 # Appendix
