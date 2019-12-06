@@ -62,7 +62,7 @@ During Training, ground truth for captions are available, hence the model can le
 
 ## Results
 <p align="center" ><img src="images/result1.png" height="120"><p>
-<p align="center" ><img src="images/result2.png" height="110"><p>
+<p align="center" ><img src="images/result2.png" height="115"><p>
 <p align="center" ><img src="images/result3.png" height="100"><p>
 
 ## Future Work
