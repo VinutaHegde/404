@@ -89,11 +89,11 @@ This is done to make use of teacher force method to make the learning process ea
 
 #### Inference
 To do inference, the model is fed with a sequence of 5 images, and a 2D array representing captions. Of course captions are not present during inference time, Hence we simply feed a 2D array as follows:
-> [[1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
-> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
-> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
-> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
-> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]]
+> [[1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] </br>
+> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] </br>
+> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] </br>
+> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] </br>
+> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]] </br>
 Where 1 here represents the index of the word "startseq"
 
 ##  Glossary
