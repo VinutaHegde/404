@@ -61,13 +61,12 @@ The model uses a sparse cross entropy loss (modified cross entropy loss that dis
 During Training, ground truth for captions are available, hence the model can learn all at once. However, during inference, ground truth ceases to exist. Hence, words are generated one by one. Unfortunatly, there is no other straightforward way to feed previously generated words to the decoder during inference. The model is used for prediting every single word, so in the worst case the model will be called 100 times (5 captions, 20 words each) to generate a single story. For that reason, We used greedy search to get the story. Although beam search could lead to better results, it has been omitted due to the huge increase in processing just to generate a single story.
 
 ## Results
-<p align="center" ><img src="images/result1.png" height="120"><p>
+<p align="center" ><img src="images/result1.png" height="120"></p>
+
 > the fireworks started right the day . the soldier takes the stage to talk about the organization organization . the 4th of july displays are a lot of fun . the grand finale is happening in the distance . the grand finale is happening to the project .
-
-<p align="center" ><img src="images/result2.png" height="115"><p>
+<p align="center" ><img src="images/result2.png" height="115"></p>
 > the fireworks were gorgeous . i bought a new camera for the event . i wanted to capture them as clearly as possible . it was a lot of fun . afterward it was very smoky .
-
-<p align="center" ><img src="images/result3.png" height="100"><p>
+<p align="center" ><img src="images/result3.png" height="100"></p>
 > the fireworks started right to start the day . the old plantations were fun to look at . the old fountain in the middle of the road was fun . the dragon ride was fun to behold . afterwards , the instructor greeted the fireworks .
 
 ## Future Work
