@@ -62,8 +62,9 @@ During Training, ground truth for captions are available, hence the model can le
 
 ## Results
 <p align="center" ><img src="images/result1.png" height="120"><p>
-<p align="center" ><img src="images/result2.png" height="120"><p>
+<p align="center" ><img src="images/result2.png" height="110"><p>
 <p align="center" ><img src="images/result3.png" height="100"><p>
+
 ## Future Work
 - Non teacher-force methods as it appears to degregate the coherency of the generated captions. It is not easy to recover from a bad previous word, hence, this has huge impact on the quality of the generated sentences.
 - More effective represnetation of the previous captions, skip-thought vector representation could be an effective representation
