@@ -61,19 +61,34 @@ The model uses a sparse cross entropy loss (modified cross entropy loss that dis
 During Training, ground truth for captions are available, hence the model can learn all at once. However, during inference, ground truth ceases to exist. Hence, words are generated one by one. Unfortunatly, there is no other straightforward way to feed previously generated words to the decoder during inference. The model is used for prediting every single word, so in the worst case the model will be called 100 times (5 captions, 20 words each) to generate a single story. For that reason, We used greedy search to get the story. Although beam search could lead to better results, it has been omitted due to the huge increase in processing just to generate a single story.
 
 ## Results
+The proposed model gave the following stories for the sequence of images:
 <p align="center" ><img src="images/result1.png" height="120"></p>
 
 > the fireworks started right the day . the soldier takes the stage to talk about the organization organization . the 4th of july displays are a lot of fun . the grand finale is happening in the distance . the grand finale is happening to the project .
 <p align="center" ><img src="images/result2.png" height="115"></p>
 
 > the fireworks were gorgeous . i bought a new camera for the event . i wanted to capture them as clearly as possible . it was a lot of fun . afterward it was very smoky .
+
+
+With a bit of imagination, we could pass these results as okay-ish, since they describe some kind of an event. However, when passing the following image sequence:
+
 <p align="center" ><img src="images/result3.png" height="100"></p>
 
+We get the following story:
+
 > the fireworks started right to start the day . the old plantations were fun to look at . the old fountain in the middle of the road was fun . the dragon ride was fun to behold . afterwards , the instructor greeted the fireworks .
+
+Which also haapens to start by describing fireworks, while the image sequence is devoid of any kind of event/carnival. Then, we went back and retraced our methods and found that the main observation is that the model is generating similar observations given extreme inputs (like the third example above). As an effort remedy that, we tried to:
+- Reduce the influence of the previous sentences, to help the model recover from previous unrelated captions
+- Feed the image as an input to the decoder, together with the previously generated word
+- Removing RNN for images as an effort to isolate images to reduce the noise from previous images
+[you can read about these models here](Extra.md)  )
+All these methods (as well as our proposed approach) were able to acheive high accuracy during training, but during testing the generated stories make very little sense. So, we conclude our results with the thought that since we used many ways to feed information to the decoder, but did not perform well during testing phase in all these trials, RNN decoders that use teacher force method might be the real culprit here, and might not be the way to go in this model, and more sofisticated methods are needed to decode the sequences.
 
 ## Future Work
 - Non teacher-force methods as it appears to degregate the coherency of the generated captions. It is not easy to recover from a bad previous word, hence, this has huge impact on the quality of the generated sentences.
 - More effective represnetation of the previous captions, skip-thought vector representation could be an effective representation
+- Adding an attention mechanism to the model, in order to make better understanding of the images in the sequence
 - Using a discriminator to criticize the network instead of direct loss
 - GAN can replace the decoder to ensure that the generated sentences are not memorized but brand new
 - Rinforcement learning language model as the decoder, with a reward function that takes care of language and story coherence 
