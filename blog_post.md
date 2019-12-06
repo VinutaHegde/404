@@ -55,7 +55,7 @@ same as the previous process.
 
 The model uses a sparse cross entropy loss (modified cross entropy loss that discards the use of one-hot encodings for words to make more efficient use of memory) where each word is treated as a class.  The model tries to lower the misclassifications for each timestep (each word position) for the entire story.
 
-(Please note that during implementation, image features are pre extracted using Xception. Words are replaced by their indices, and later in the model are embedded in a freezed layer using glove 300 embeddings, [click for more details about implementation and baseline models](Extra.md)  )
+(Please note that during implementation, image features are pre extracted using Xception. Words are replaced by their indices, and later in the model are embedded in a freezed layer using glove 300 embeddings, ([click for more details about implementation and baseline models](Extra.md))
 
 ## Inference
 During Training, ground truth for captions are available, hence the model can learn all at once. However, during inference, ground truth ceases to exist. Hence, words are generated one by one. Unfortunatly, there is no other straightforward way to feed previously generated words to the decoder during inference. The model is used for prediting every single word, so in the worst case the model will be called 100 times (5 captions, 20 words each) to generate a single story. For that reason, We used greedy search to get the story. Although beam search could lead to better results, it has been omitted due to the huge increase in processing just to generate a single story.
@@ -82,7 +82,8 @@ Which also happens to start by describing fireworks, while the image sequence is
 - Reduce the influence of the previous sentences, to help the model recover from previous unrelated captions
 - Feed the image as an input to the decoder, together with the previously generated word
 - Removing RNN for images as an effort to isolate images to reduce the noise from previous images
-[you can read about these models here](Extra.md)  )
+
+([you can read about these models here](Extra.md))
 
 All these methods (as well as our proposed approach) were able to acheive high accuracy during training, but during testing the generated stories make very little sense. So, we conclude our results with the thought that since we used various ways to feed information to the decoder, but did not perform well during testing phase in all these trials, RNN decoders that use teacher force method might be the real culprit here, and might not be the way to go in this model, and more sofisticated methods are needed to decode the sequences.
 
