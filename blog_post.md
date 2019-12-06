@@ -65,8 +65,10 @@ During Training, ground truth for captions are available, hence the model can le
 
 > the fireworks started right the day . the soldier takes the stage to talk about the organization organization . the 4th of july displays are a lot of fun . the grand finale is happening in the distance . the grand finale is happening to the project .
 <p align="center" ><img src="images/result2.png" height="115"></p>
+
 > the fireworks were gorgeous . i bought a new camera for the event . i wanted to capture them as clearly as possible . it was a lot of fun . afterward it was very smoky .
 <p align="center" ><img src="images/result3.png" height="100"></p>
+
 > the fireworks started right to start the day . the old plantations were fun to look at . the old fountain in the middle of the road was fun . the dragon ride was fun to behold . afterwards , the instructor greeted the fireworks .
 
 ## Future Work
