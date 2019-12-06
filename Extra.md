@@ -75,8 +75,26 @@ The Model is implemented in Keras on top of tensorflow. All the layers used are 
    * A concatenated story
 * for Proposed model:
    * array of 5 images
-   * array of 5 captions (copose the entire story)
+   * array of 5 captions (compose the entire story)
 
+#### More Implementation Details
+A dictionary is used to index all words in the vocabulary. The captions are fed as a list of indices instead of actual words. The model then uses a freezed embedding layer that makes use of Glove 300 embeddings as its weight. This is where words are converted to their respective feature representation. This is done to make better use of memory resources.
+Captions are elso padded if the number of words is less than the allocated length of 20 words. Masking is used to ignore padded words so that the model does not calculate padding as part of the correctly predicted words.
+Captions are used twice, once in the input and once in the output.
+- Input captions are initiated with the word "startseq"
+- Output captions are tailed with "endseq"
+This is done to make use of teacher force method to make the learning process easier and faster.
+
+#### Model Structure
+
+#### Inference
+To do inference, the model is fed with a sequence of 5 images, and a 2D array representing captions. Of course captions are not present during inference time, Hence we simply feed a 2D array as follows:
+> [[1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]]
+Where 1 here represents the index of the word "startseq"
 
 ##  Glossary
 #### Album 
