@@ -55,7 +55,7 @@ The model is trained end-to-end and is expected to generate all five captions al
 For the first caption, the model takes the output from the first timestep of the image encoder, and passes that as the first hidden state for the decoder. Further, the decoder uses image encoding and the initial caption to generate the very first caption. 
 
 1. STEP 2:
-After that, the model passes the decoder’s output for the first caption to the previous caption encoder and concatenates it's output with the image encoder’s output for the second timestep. And then the model uses the concatinated encoding to initialize the first hidden state for the decoder, and generates the second caption.
+After that, the model passes the decoder’s output for the first caption to the previous caption encoder and concatenates it's output with the image encoder’s output for the second timestep. And then the model uses the concatinated encoding to initialize the first hidden state for the decoder and generates the second caption.
 
 1.  STEP 3:
 For the third caption, the same process is repeated, except now the previous caption encoder concatenates the decoder’s output from STEP 1 and STEP 2 to generate the encoding. 
