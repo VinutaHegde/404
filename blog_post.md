@@ -4,22 +4,27 @@ Imagine a tool which generates an interesting story given an album of images. Be
 
 ## Problem
 
-The Image Captioning task focuses on generating a description of a single image in isolation. There have been sufficient research on this task producing ground-breaking results. Video Summarization task, on the other hand, is a relatively harder task since it involves the selection of keyframes to be considered for summarization. Visual storytelling is an open problem in Deep Learning. Album Narration is an attempt to generate contextual image captions for a sequence of images such that, the whole album of images can be described with a cohesive and interesting story.
-To solve the Album Narration problem, we need a solution that meets in the middle of the 2 tasks mentioned:
+The Image Captioning task focuses on generating a description of a single image in isolation. There have been sufficient research on this task producing ground-breaking results. Video Summarization task, on the other hand, is a relatively harder task since it involves the selection of keyframes to be considered for summarization. Visual storytelling is an open problem in Deep Learning. Album Narration is an attempt to generate contextual image captions for a sequence of images such that, the whole album of images can be described with a cohesive and interesting story like .
+
+<img title="Figure 1.0" src="images/problem_statement_image.png" height="250">
+<p align="center"><em> Fig. 1: Sample narration</em></p>
+<br>
+<br>
+To solve the Album Narration problem, we need a solution that meets in the middle of the 2 tasks mentioned: 
+
 1. Reasoning about an image devoid of any context
 1. Reasoning about a set of continuous frames with sufficient context
 
-
 ## Proposed Model
-The intuition behind this model is to condition the current caption generation on context of previous information encountered. This context can be extracted from either images  or all the previous sentences, or both. The current model uses previous information from both, previous images and previous captions. The Proposed model is composed of three main parts, images encoder, previous captiones encoder, and a decoder, all are explained in the following segments.
+The intuition behind this model is to condition the current caption generation on context of previous information encountered. This context can be extracted from either images  or all the previous sentences, or both. The current model uses previous information from both, previous images and previous captions. The Proposed model is composed of three main parts, image encoder, previous-caption encoder, and a decoder, all are explained in the following segments.
 ``` Please note that the graphs are made simple by removing dense layers/ activations/ dropouts/ regularization etc. for more details about these layers please take a look at the code in the repository. ```
 
 ### Image Encoder
-The sequential image encoder expects 5 images and passes these images sequentially through a GRU that returns the output from each single timestep. The point of passing the images through a GRU is that instead of having information about individual  images, We would rather have information for the current image, together with all previous images, in an effort to essentially capture all previously occurring events.
+The sequential image encoder expects 5 images and passes these images sequentially through a GRU that returns the output from each single timestep. The point of passing the images through a GRU is that instead of having information about individual  images, we would rather have information for the current image, together with all previous images, in an effort to capture the context from all previously occurring events.
 <p align="center">&emsp;&emsp;&emsp;&emsp;<img src="images/imageEncoder.png" height="200"><p>
 
-### Previous Captions Encoder
-Second part is a previous captions encoder, which essentially encodes all previously generated captions into one single thought. The main point of doing that is to encourage the model to remember what all it previously generated so that it will not go further away from the story it started with. Basically, the model is expected to stick to the story it started with. For example, if the next image had information about a man having fun, and the previously generated captions were: 
+### Previous Caption Encoder
+Second part is a previous caption encoder, which essentially encodes all previously generated captions into one single thought. The main point of doing that is to encourage the model to remember what all it previously generated so that it will not go further away from the storyline generated so far. Basically, the model is expected to stick to the story it started with. For example, if the next image had information about a man having fun, and the previously generated captions were: 
 > I’m going out with my friends tonight
 
 we would expect the story to continue with: 
@@ -32,13 +37,13 @@ However, if the previous captions were:
 
 next caption is expected to be more like
 
-> This guy seem to be totally enjoying the event!
+> This guy seems to be totally enjoying the event!
 
 To do that, a bidirectional GRU is used to encode all previously generated captions.
 <p align="center" ><img src="images/prevCapEncoder.png" height="250"><p>
 
 ### Decoder
-The decoder of the proposed model is expected to receive two encodings (image and caption) to generate every caption. Therefore, the decoder is re-used five times in the proposed model, once for every caption. The decoder is a GRU that uses a teacher force method during the learning phase in order to speed up the learning process.
+The decoder of the proposed model is expected to receive two encodings, an image and a caption to generate a current caption. Therefore, the decoder is re-used five times in the proposed model, once for every caption. The decoder is a GRU that uses a teacher-force method during the learning phase in order to speed up the learning process.
 <p align="center">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="images/decoder.png" height="300"><p>
 
 ## Training
@@ -47,16 +52,18 @@ The model is trained end-to-end and is expected to generate all five captions al
 <p align="center" ><img src="images/training.gif" height="300"><p>
 
 1. STEP 1:
-For the first caption, the model takes the output from the first timestep of the image encoder, and passes that as the first hidden state for the decoder, and the decoder uses that, together with the caption input to generate the very first caption. 
+For the first caption, the model takes the output from the first timestep of the image encoder, and passes that as the first hidden state for the decoder. Further, the decoder uses image encoding and the initial caption to generate the very first caption. 
 
 1. STEP 2:
-After that, the model passes the decoder’s output for the first caption to the prev-captions encoder and concatenates the prev-captions encoder’s output together with the image encoder’s output for the second timestep. And then the model uses that to initialize the first hidden state for the decoder, and then the second caption is generated.
+After that, the model passes the decoder’s output for the first caption to the previous caption encoder and concatenates it's output with the image encoder’s output for the second timestep. And then the model uses the concatinated encoding to initialize the first hidden state for the decoder, and generates the second caption.
+
 1.  STEP 3:
-For the third caption, the same process happens, except now the prev-captions encoder concatenates the decoder’s output from STEP 1 and STEP 2 to generate the encoding. 
+For the third caption, the same process is repeated, except now the previous caption encoder concatenates the decoder’s output from STEP 1 and STEP 2 to generate the encoding. 
+
 1. STEPs 4, 5:
 same as the previous process.
 
-The model uses a sparse cross entropy loss (modified cross entropy loss that discards the use of one-hot encodings for words to make more efficient use of memory) where each word is treated as a class.  The model tries to lower the misclassifications for each timestep (each word position) for the entire story.
+The model uses a **sparse cross entropy loss** (modified cross entropy loss that discards the use of one-hot encodings for words to make more efficient use of memory) where each word is treated as a class.  The model tries to lower the misclassifications for each timestep (each word position) for the entire story.
 
 (Please note that during implementation, image features are pre extracted using Xception. Words are replaced by their indices, and later in the model are embedded in a freezed layer using glove 300 embeddings, ([click for more details about implementation and baseline models](Extra.md))
 
