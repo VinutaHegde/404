@@ -61,8 +61,8 @@ The model uses a sparse cross entropy loss (modified cross entropy loss that dis
 During Training, ground truth for captions are available, hence the model can learn all at once. However, during inference, ground truth ceases to exist. Hence, words are generated one by one. Unfortunatly, there is no other straightforward way to feed previously generated words to the decoder during inference. The model is used for prediting every single word, so in the worst case the model will be called 100 times (5 captions, 20 words each) to generate a single story. For that reason, We used greedy search to get the story. Although beam search could lead to better results, it has been omitted due to the huge increase in processing just to generate a single story.
 
 ## Results
-<p align="center" ><img src="images/result1.png" height="100"><p>
-<p align="center" ><img src="images/result2.png" height="100"><p>
+<p align="center" ><img src="images/result1.png" height="120"><p>
+<p align="center" ><img src="images/result2.png" height="120"><p>
 <p align="center" ><img src="images/result3.png" height="100"><p>
 ## Future Work
 - Non teacher-force methods as it appears to degregate the coherency of the generated captions. It is not easy to recover from a bad previous word, hence, this has huge impact on the quality of the generated sentences.
