@@ -67,15 +67,15 @@ We used pretrained __Xception model__ from Keras to extract the features from th
 The Model is implemented in Keras on top of tensorflow. All the layers used are native keras layers
 
 #### Training pairs:
-- for Base Model1:
- - A signle image
- - A single caption associated with the image
-- for Base Model2:
- - A concatenation of 5 images
- - A concatenated story
-- for Proposed model:
- - array of 5 images
- - array of 5 captions (copose the entire story)
+* for Base Model1:
+ * A signle image
+ * A single caption associated with the image
+* for Base Model2:
+ * A concatenation of 5 images
+ * A concatenated story
+* for Proposed model:
+ * array of 5 images
+ * array of 5 captions (copose the entire story)
 
 
 ##  Glossary
